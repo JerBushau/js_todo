@@ -3,6 +3,7 @@
 const formWrap = document.getElementById('form-wrap')
 const todoContainer = document.getElementById('todo-container')
 
+let n = 0
 let allTodos = [
   new Todo('hi, i\'m seed data', -1),
   new Todo('Just some more seed data', -2),
@@ -10,10 +11,8 @@ let allTodos = [
 ]
 
 allTodos.forEach((i) => {
-  todoContainer.insertAdjacentElement('beforeend', i.template.render())
+  todoContainer.insertAdjacentElement('beforeend', i.template.defaultTemplate.render())
 })
-
-let n = 0
 
 const todoInputForm = new Element({
   // form
@@ -37,6 +36,7 @@ const todoInputForm = new Element({
       }
     })
   },
+  // form submit handler
   on: {
     event: 'submit',
     function: function addTodo(e) {
@@ -54,7 +54,10 @@ const todoInputForm = new Element({
       todoContainer.innerHTML= ''
 
       allTodos.forEach(i => {
-        todoContainer.insertAdjacentElement('beforeend', i.template.render())
+        todoContainer.insertAdjacentElement(
+          'beforeend',
+          i.template.defaultTemplate.render()
+        )
       })
 
       this.children[0].value = ''
