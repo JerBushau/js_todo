@@ -1,4 +1,5 @@
 'use strict'
+
 class TodoTemplate {
   constructor(text, id) {
     this.defaultTemplate = new Element({
@@ -21,9 +22,11 @@ class TodoTemplate {
             function: function editMode() {
               let editInput = this.parentElement.children[1]
               let saveBtn = this.parentElement.children[2].children[0]
+              let completeBtn = this.parentElement.children[2].children[1]
               let mainLabel = this.parentElement.children[0]
 
-              this.classList.add('hidden')
+              this.classList.toggle('hidden')
+              completeBtn.classList.add('hidden')
               editInput.classList.toggle('hidden')
               saveBtn.classList.toggle('hidden')
               editInput.value = mainLabel.textContent
@@ -60,6 +63,7 @@ class TodoTemplate {
                   let parent = this.parentElement.parentElement
                   let mainLabel = parent.children[0]
                   let editInput = parent.children[1]
+                  let completeBtn = this.parentElement.children[1]
                   let index;
 
                   for (let i = 0; i < allTodos.length; i++) {
@@ -74,8 +78,41 @@ class TodoTemplate {
                   }
 
                   this.classList.add('hidden')
+                  completeBtn.classList.toggle('hidden')
                   editInput.classList.toggle('hidden')
                   mainLabel.classList.toggle('hidden')
+                }
+              }
+            }),
+            // complete btn
+            completeBtn: new Element({
+              tag: 'button',
+              attributes: {
+                textContent: 'complete',
+                type: 'button',
+              },
+              // complete btn handler
+              on: {
+                event: 'click',
+                function: function todoComplete() {
+                  let parent = this.parentElement.parentElement
+                  let index;
+
+                  for (let i = 0; i < allTodos.length; i++) {
+                    if (allTodos[i].id === parseInt(parent.id)) {
+                      index = allTodos.indexOf(allTodos[i])
+
+                      // update data
+                      if (!allTodos[index].complete || allTodos[index].complete === false) {
+                        allTodos[index].complete = true
+                      } else {
+                        allTodos[index].complete = false
+                      }
+                      // update view
+                      parent.classList.toggle('complete')
+
+                    }
+                  }
                 }
               }
             }),

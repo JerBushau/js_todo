@@ -43,6 +43,10 @@ p {
   display: none;
 }
 
+.complete {
+  text-decoration: line-through;
+}
+
 #todo-app {
   flex-direction: column;
   align-items: center;

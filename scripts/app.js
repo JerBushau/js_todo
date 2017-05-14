@@ -7,15 +7,15 @@ let n = 0
 let allTodos = [
   new Todo('hi, i\'m seed data', -1),
   new Todo('Just some more seed data', -2),
-  new Todo('yo, strange looking code. but building it was fun.', -3)
+  new Todo('yo, strange code. but building it was pretty fun.', -3)
 ]
 
-allTodos.forEach((i) => {
-  todoContainer.insertAdjacentElement('beforeend', i.template.defaultTemplate.render())
+allTodos.forEach(todo => {
+  todoContainer.insertAdjacentElement('beforeend', todo.template.defaultTemplate.render())
 })
 
 const todoInputForm = new Element({
-  // form
+  // form element
   tag: 'form',
   children: {
     // form input
