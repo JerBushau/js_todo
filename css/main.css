@@ -1,0 +1,63 @@
+form,
+label,
+div,
+#todo-app {
+  display: flex;
+}
+
+form {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+label {
+  padding: 0 15px;
+}
+
+input {
+  width: 81%;
+  margin-right: 10px;
+}
+
+button {
+  justify-content: center;
+  width: 99px;
+  margin-left: 10px;
+}
+
+h1 {
+  margin-bottom: 0;
+}
+
+p {
+  text-align: center;
+}
+
+.todo {
+  margin: 5px 0;
+  background: whitesmoke;
+  align-items: center;
+}
+
+.hidden {
+  display: none;
+}
+
+#todo-app {
+  flex-direction: column;
+  align-items: center;
+}
+
+#form-wrap {
+  width: 600px;
+}
+
+#todo-container {
+  width: 600px;
+  flex-direction: column;
+}
+
+.btn-container,
+.submitBtn {
+  margin-left: auto;
+}
