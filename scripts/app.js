@@ -69,4 +69,3 @@ const todoInputForm = new Element({
 })
 
 formWrap.appendChild(todoInputForm.render())
-
