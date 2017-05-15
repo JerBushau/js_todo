@@ -11,7 +11,10 @@ let allTodos = [
 ]
 
 allTodos.forEach(todo => {
-  todoContainer.insertAdjacentElement('beforeend', todo.template.defaultTemplate.render())
+  todoContainer.insertAdjacentElement(
+    'beforeend',
+    todo.template.defaultTemplate.render()
+  )
 })
 
 const todoInputForm = new Element({

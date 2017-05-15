@@ -5,7 +5,7 @@ class Todo {
     this.text = text
     this.id = id
     // default todo template
-    this.template = new TodoTemplate(this.text, this.id)
+    this.template = new viewtroller(this.text, this.id)
   }
 
   setText(text) {
